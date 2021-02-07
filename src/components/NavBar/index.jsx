@@ -1,5 +1,7 @@
+import React from "react";
+import logo from "./logo.png";
+import CartWidget from "../CartWidget/index";
 import "./styles.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import {
   Navbar,
   Nav,
@@ -11,9 +13,11 @@ import {
 
 function NavbarComponent() {
   return (
-    <div className="NavbarComponent">
+    <div>
       <Navbar bg="dark" variant="dark" expand="lg">
-        <Navbar.Brand href="#home">Oliva-Bakery</Navbar.Brand>
+        <Navbar.Brand href="#home">
+          <img src={logo} alt="..." width="50" height="50" />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
@@ -32,6 +36,7 @@ function NavbarComponent() {
             <Button variant="outline-success">Search</Button>
           </Form>
         </Navbar.Collapse>
+        <CartWidget />
       </Navbar>
       <h1>Oliva Bakery</h1>
     </div>
