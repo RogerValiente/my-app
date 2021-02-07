@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/my-app/static/css/main.c7adbcf0.chunk.css",
-    "main.js": "/my-app/static/js/main.f7e01932.chunk.js",
-    "main.js.map": "/my-app/static/js/main.f7e01932.chunk.js.map",
-    "runtime-main.js": "/my-app/static/js/runtime-main.c458af1f.js",
-    "runtime-main.js.map": "/my-app/static/js/runtime-main.c458af1f.js.map",
+    "main.css": "/my-app/static/css/main.b8f05904.chunk.css",
+    "main.js": "/my-app/static/js/main.dcb96444.chunk.js",
+    "main.js.map": "/my-app/static/js/main.dcb96444.chunk.js.map",
+    "runtime-main.js": "/my-app/static/js/runtime-main.3395acda.js",
+    "runtime-main.js.map": "/my-app/static/js/runtime-main.3395acda.js.map",
     "static/css/2.150d169a.chunk.css": "/my-app/static/css/2.150d169a.chunk.css",
-    "static/js/2.1c83f2db.chunk.js": "/my-app/static/js/2.1c83f2db.chunk.js",
-    "static/js/2.1c83f2db.chunk.js.map": "/my-app/static/js/2.1c83f2db.chunk.js.map",
-    "static/js/3.0e390c51.chunk.js": "/my-app/static/js/3.0e390c51.chunk.js",
-    "static/js/3.0e390c51.chunk.js.map": "/my-app/static/js/3.0e390c51.chunk.js.map",
+    "static/js/2.3e5b6fa2.chunk.js": "/my-app/static/js/2.3e5b6fa2.chunk.js",
+    "static/js/2.3e5b6fa2.chunk.js.map": "/my-app/static/js/2.3e5b6fa2.chunk.js.map",
+    "static/js/3.5fab0b88.chunk.js": "/my-app/static/js/3.5fab0b88.chunk.js",
+    "static/js/3.5fab0b88.chunk.js.map": "/my-app/static/js/3.5fab0b88.chunk.js.map",
     "index.html": "/my-app/index.html",
     "static/css/2.150d169a.chunk.css.map": "/my-app/static/css/2.150d169a.chunk.css.map",
-    "static/css/main.c7adbcf0.chunk.css.map": "/my-app/static/css/main.c7adbcf0.chunk.css.map",
-    "static/js/2.1c83f2db.chunk.js.LICENSE.txt": "/my-app/static/js/2.1c83f2db.chunk.js.LICENSE.txt",
+    "static/css/main.b8f05904.chunk.css.map": "/my-app/static/css/main.b8f05904.chunk.css.map",
+    "static/js/2.3e5b6fa2.chunk.js.LICENSE.txt": "/my-app/static/js/2.3e5b6fa2.chunk.js.LICENSE.txt",
     "static/media/cart.f6cc872a.png": "/my-app/static/media/cart.f6cc872a.png",
     "static/media/logo.7e399cc0.png": "/my-app/static/media/logo.7e399cc0.png",
     "static/media/torta.bf95d443.jpg": "/my-app/static/media/torta.bf95d443.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.c458af1f.js",
+    "static/js/runtime-main.3395acda.js",
     "static/css/2.150d169a.chunk.css",
-    "static/js/2.1c83f2db.chunk.js",
-    "static/css/main.c7adbcf0.chunk.css",
-    "static/js/main.f7e01932.chunk.js"
+    "static/js/2.3e5b6fa2.chunk.js",
+    "static/css/main.b8f05904.chunk.css",
+    "static/js/main.dcb96444.chunk.js"
   ]
 }
