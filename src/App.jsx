@@ -1,28 +1,33 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavbarComponent from "./components/NavBar/index";
 import ItemListContainer from "./containers/ItemListContainer/index";
-import torta from "./imagen/torta.jpg";
+import ItemDetailContainer from "./containers/ItemDetailContainer/index";
+import Cart from "./components/Cart/Index";
 
 function App() {
-  const data = {
-    imagen: torta,
-    titulo: "Torta De la Casa",
-    descripcion:
-      " Una delicia de la casa con sabor a limon, decoracion con frutas y chocolate.",
-    precio: "25000",
-  };
   return (
-    <div>
-      <NavbarComponent />
-      <ItemListContainer
-        imagen={data.imagen}
-        titulo={data.titulo}
-        descripcion={data.descripcion}
-        precio={data.precio}
-      />
-    </div>
+    <>
+      <Router>
+        <NavbarComponent />
+        <Switch>
+          <Route path="/producto/:id">
+            <ItemDetailContainer />
+          </Route>
+          <Route exact path="/carrito">
+            <Cart />
+          </Route>
+          <Route exact path="/catalog">
+            <ItemListContainer />
+          </Route>
+          <Route exact path="/">
+            <ItemListContainer />
+          </Route>
+        </Switch>
+      </Router>
+    </>
   );
 }
 

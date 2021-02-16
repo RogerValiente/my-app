@@ -1,11 +1,12 @@
 import React from "react";
-import cart from "./cart.png";
+import cart from "../../imagen/cart.png";
+import { Link } from "react-router-dom";
 
 function CartWidget() {
   return (
-    <a href="/">
+    <Link to="/carrito">
       <img src={cart} alt="..." width="60" height="60" />
-    </a>
+    </Link>
   );
 }
 

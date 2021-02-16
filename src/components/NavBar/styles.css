@@ -1,14 +1,17 @@
 body {
-  background-color: rgb(206, 200, 200) !important;
+  background-color: rgb(238, 120, 120) !important;
 }
 
 body h1 {
   display: flex;
   justify-content: center;
   font-weight: bold;
-  font-size: 4rem;
+  font-size: 5rem;
   color: rgb(34, 33, 33);
+  margin-bottom: 3rem;
+  margin-top: 2rem;
 }
 
-.logo {
+.menu {
+  background-color: black;
 }

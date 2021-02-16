@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./styles.css";
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ stock, initial, onAdd, label = "Agregar al carrito" }) => {
   const [count, setCount] = useState(initial);
   const restarProd = (num) => {
     if (count <= 1) {
@@ -22,20 +22,20 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   return (
     <div>
       <button
-        className={`btn btn-primary ${count === 1 ? "disabled" : ""}`}
+        className={`btn btn-dark ${count === 1 ? "disabled" : ""}`}
         onClick={() => restarProd(count - 1)}
       >
         -
       </button>
       <p className="d-inline-flex p-3">{count}</p>
       <button
-        className={`btn btn-primary ${count === stock ? "disabled" : ""}`}
+        className={`btn btn-dark ${count === stock ? "disabled" : ""}`}
         onClick={() => sumarProd(count + 1)}
       >
         +
       </button>
-      <button className="boton btn btn-primary" onClick={onAdd}>
-        Agregar al carrito
+      <button className="boton btn btn-dark" onClick={() => onAdd(count)}>
+        {label}
       </button>
     </div>
   );

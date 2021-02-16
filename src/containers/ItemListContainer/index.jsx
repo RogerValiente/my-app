@@ -1,22 +1,25 @@
-import ItemCount from "../../components/ItemCount/index";
+import React, { useState, useEffect } from "react";
+import listaProductos from "../../data/dataProductos";
+import ItemList from "../../components/itemList/index";
 
-const ItemListContainer = ({ titulo, descripcion, precio, imagen }) => {
-  const onAdd = () => alert("Se agrego el producto al carrito");
+const ItemListContainer = () => {
+  const [productos, setProductos] = useState([]);
+
+  useEffect(() => {
+    const myPromise = new Promise((resolve, reject) => {
+      setTimeout(() => resolve(listaProductos), 1000);
+    });
+
+    myPromise.then((resultado) => setProductos(resultado));
+  }, []);
 
   return (
-    <div className="container">
-      <div className="card" style={{ width: "18rem" }}>
-        <div className="card-body">
-          <a href="/">
-            <img src={imagen} width="240" height="200" alt="Pasteleria" />
-          </a>
-          <h3 className="card-title text-center">{titulo}</h3>
-          <p>{descripcion}</p>
-          <p className="font-weight-bold">Precio: {precio}</p>
-          <ItemCount stock={12} initial={1} onAdd={onAdd} />
-        </div>
+    <>
+      <h1>Nuestros Productos</h1>
+      <div className="container card-columns">
+        <ItemList productos={productos} />
       </div>
-    </div>
+    </>
   );
 };
 
