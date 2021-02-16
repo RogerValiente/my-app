@@ -5,13 +5,7 @@ import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
-  // const [product, setProduct] = useState([]);
 
-  // useEffect(() => {
-  //   listaProductos.then((resp) => {
-  //     setProduct(resp.find((p) => p.id === id));
-  //   });
-  // }, [id]);
   return (
     <>
       {listaProductos

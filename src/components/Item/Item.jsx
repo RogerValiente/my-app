@@ -1,23 +1,11 @@
 import React from "react";
-import ItemCount from "../ItemCount/index";
 import { Link } from "react-router-dom";
-import listaProductos from "../../data/dataProductos";
 
 import "./styles.css";
 
 const Item = ({ producto }) => {
-  // const [data, setData] = useState(producto);
-
-  const onAdd = (num) => {
-    let itemIndx = listaProductos.findIndex((a) => a.id === producto.id);
-    let prod = listaProductos.filter((p) => p.id === producto.id)[0];
-    prod.cantidadSolicitada = num;
-    listaProductos.splice(itemIndx, 1, prod);
-    alert("Se agregó al carrito");
-  };
-
   return (
-    <div className="card cardProducto" style={{ width: "18rem" }}>
+    <div className="card cardProducto pb-5" style={{ width: "18rem" }}>
       <div className="card-body">
         <a href="../../App.jsx">
           <img
@@ -31,19 +19,9 @@ const Item = ({ producto }) => {
         <p className="card-text">{producto.descripcion}</p>
         <p className="font-weight-bold">Precio: {producto.precio}</p>
 
-        <Link
-          to={`/producto/${producto.id}`}
-          className="botonProd btn btn-dark"
-        >
+        <Link to={`/producto/${producto.id}`} className="btn btn-dark btn-lg">
           Ver mas
         </Link>
-
-        <ItemCount
-          stock={5}
-          initial={1}
-          onAdd={onAdd}
-          mostrarTerminarCompra={false}
-        />
       </div>
     </div>
   );

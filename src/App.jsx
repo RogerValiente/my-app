@@ -22,7 +22,7 @@ function App() {
           <Route exact path="/catalog">
             <ItemListContainer />
           </Route>
-          <Route exact path="/">
+          <Route path="/">
             <ItemListContainer />
           </Route>
         </Switch>
