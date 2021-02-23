@@ -1,9 +1,29 @@
+import React, { useContext } from "react";
+import { CTX } from "../../Store/Store";
 import ItemCount from "../ItemCount/index";
 import { Link } from "react-router-dom";
 
 const ItemDetail = ({ product }) => {
-  const onAdd = (num) => {
-    alert(`Se compraran ${num} productos`);
+  const [state, dispatch] = useContext(CTX);
+  const { carrito } = state;
+
+  const onAdd = (prd, id) => {
+    let productoActual = carrito.filter((c) => c.item.id === id);
+    if (productoActual.length > 0) {
+      productoActual[0].cantidad = productoActual[0].cantidad + 1;
+
+      let idx = carrito.findIndex((a) => a.id === id);
+      carrito.splice(idx, 1, ...productoActual);
+      dispatch({
+        type: "CARGAR_CARRITO",
+        payload: carrito,
+      });
+    } else {
+      dispatch({
+        type: "CARGAR_CARRITO",
+        payload: [...carrito, { item: prd, cantidad: 1 }],
+      });
+    }
   };
 
   const {
@@ -58,7 +78,12 @@ const ItemDetail = ({ product }) => {
               />
             </div>
             <div className="card-body">
-              <ItemCount label="comprar" stock={5} initial={1} onAdd={onAdd} />
+              <ItemCount
+                label="comprar"
+                stock={5}
+                initial={1}
+                onAdd={() => onAdd(product, id)}
+              />
             </div>
           </div>
         </div>
