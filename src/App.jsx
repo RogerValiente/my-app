@@ -1,7 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import NavbarComponent from "./components/NavBar/index";
 import ItemListContainer from "./containers/ItemListContainer/index";
 import ItemDetailContainer from "./containers/ItemDetailContainer/index";
