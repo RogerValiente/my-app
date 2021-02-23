@@ -4,7 +4,9 @@ import ItemDetail from "../../components/ItemDetail/index";
 import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
-  const { id } = useParams();
+  const { id, categoria } = useParams();
+
+  console.log(id, categoria);
 
   return (
     <>

@@ -14,6 +14,7 @@ import caja3 from "../imagen/Cajas/caja3.jpg";
 const listaProductos = [
   {
     id: "1",
+    categoria: "pasteleria",
     imagen: torta,
     detalle: caja1,
     nombre: "Torta De la Casa",
@@ -27,6 +28,7 @@ const listaProductos = [
 
   {
     id: "2",
+    categoria: "pasteleria",
     imagen: tortaDeshidratada,
     detalle: caja2,
     nombre: "Torta Rellena",
@@ -39,6 +41,7 @@ const listaProductos = [
 
   {
     id: "3",
+    categoria: "pasteleria",
     imagen: TortaFrutos,
     detalle: caja3,
     nombre: "Torta Frutos",
@@ -51,6 +54,7 @@ const listaProductos = [
 
   {
     id: "4",
+    categoria: "postre",
     imagen: charlotte,
     detalle: caja1,
     nombre: "Charlotte",
@@ -63,6 +67,7 @@ const listaProductos = [
 
   {
     id: "5",
+    categoria: "postre",
     imagen: cupcakes,
     detalle: caja2,
     nombre: "Cupcakes",
@@ -75,6 +80,7 @@ const listaProductos = [
 
   {
     id: "6",
+    categoria: "postre",
     imagen: pavlova,
     detalle: caja3,
     nombre: "Pavlova",
@@ -87,6 +93,7 @@ const listaProductos = [
 
   {
     id: "7",
+    categoria: "detalle",
     imagen: detalles,
     detalle: caja1,
     nombre: "Detalles para Ellos",
@@ -99,6 +106,7 @@ const listaProductos = [
 
   {
     id: "8",
+    categoria: "detalle",
     imagen: galletasPolvorosas,
     detalle: caja2,
     nombre: "Galleta Polvorosa",
@@ -111,6 +119,7 @@ const listaProductos = [
 
   {
     id: "9",
+    categoria: "detalle",
     imagen: galletasTemáticas,
     detalle: caja3,
     nombre: "Galletas Temáticas",
