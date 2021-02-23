@@ -2,7 +2,9 @@ import ItemCount from "../ItemCount/index";
 import { Link } from "react-router-dom";
 
 const ItemDetail = ({ product }) => {
-  const onAdd = (num) => alert("Se compraran", num);
+  const onAdd = (num) => {
+    alert(`Se compraran ${num} productos`);
+  };
 
   const {
     id,
@@ -14,7 +16,6 @@ const ItemDetail = ({ product }) => {
     precio,
     stock,
     detalle,
-    cantidadSolicitada,
   } = product;
   return (
     <>
@@ -57,13 +58,7 @@ const ItemDetail = ({ product }) => {
               />
             </div>
             <div className="card-body">
-              {/* {cantidadSolicitada ? (
-                <button>
-                  Comprar {cantidadSolicitada} productos de esta referencia{" "}
-                </button>
-              ) : ( */}
               <ItemCount label="comprar" stock={5} initial={1} onAdd={onAdd} />
-              {/* )} */}
             </div>
           </div>
         </div>

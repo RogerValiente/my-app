@@ -13,11 +13,17 @@ function App() {
       <Router>
         <NavbarComponent />
         <Switch>
+          <Route path="/producto/:categoria/:id">
+            <ItemDetailContainer />
+          </Route>
           <Route path="/producto/:id">
             <ItemDetailContainer />
           </Route>
           <Route exact path="/carrito">
             <Cart />
+          </Route>
+          <Route exact path="/catalog/:categoria">
+            <ItemListContainer />
           </Route>
           <Route exact path="/catalog">
             <ItemListContainer />

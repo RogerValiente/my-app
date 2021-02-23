@@ -4,14 +4,10 @@ import ItemDetail from "../../components/ItemDetail/index";
 import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
-  const { id } = useParams();
-  // const [product, setProduct] = useState([]);
+  const { id, categoria } = useParams();
 
-  // useEffect(() => {
-  //   listaProductos.then((resp) => {
-  //     setProduct(resp.find((p) => p.id === id));
-  //   });
-  // }, [id]);
+  console.log(id, categoria);
+
   return (
     <>
       {listaProductos
