@@ -21,7 +21,7 @@ function NavbarComponent() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#home" className="font-weight-bold">
+            <Nav.Link href="/" className="font-weight-bold">
               Inicio
             </Nav.Link>
             <NavDropdown
@@ -29,10 +29,15 @@ function NavbarComponent() {
               id="basic-nav-dropdown"
               className="font-weight-bold"
             >
-              <NavDropdown.Item href="#action/3.1">Panaderia</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Pasteleria</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Postres</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Detalles</NavDropdown.Item>
+              <NavDropdown.Item href="/catalog/pasteleria">
+                Pasteleria
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/catalog/postre">
+                Postres
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/catalog/detalle">
+                Detalles
+              </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="#link" className="font-weight-bold">
               Nosotros
