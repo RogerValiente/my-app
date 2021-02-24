@@ -1,0 +1,5 @@
+.btnVolver {
+  z-index: 1;
+  position: relative;
+  display: contents;
+}

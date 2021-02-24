@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { CTX } from "../../Store/Store";
 import ItemCount from "../ItemCount/index";
 import { Link } from "react-router-dom";
+import "./styles.css";
 
 const ItemDetail = ({ product }) => {
   const [state, dispatch] = useContext(CTX);
@@ -39,8 +40,8 @@ const ItemDetail = ({ product }) => {
   } = product;
   return (
     <>
-      <div className="container mb-5 pt-5">
-        <Link to="/catalog" className=" btn btn-dark">
+      <div className="container mb-5 pt-5 btnVolver">
+        <Link to="/catalog" className=" btn btn-dark position-fixed">
           volver
         </Link>
       </div>
@@ -58,12 +59,14 @@ const ItemDetail = ({ product }) => {
               height="300"
               alt="Pasteleria"
             />
+
             <h3 className="card-title text-center text-white">{nombre}</h3>
             <p className="card-text text-white">{descripcion}</p>
             <p className="card-text text-white">Ingredientes: {ingredientes}</p>
             <h3 className="card-title text-center text-white">{receta}</h3>
             <p className="font-weight-bold text-white">Precio: {precio}</p>
             <p className="font-weight-bold text-white">Stock: {stock}</p>
+
             <div>
               <h3 className="card-title text-center text-white">
                 CAJA MAS DETALLE
