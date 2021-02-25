@@ -28,40 +28,40 @@ const Cart = () => {
             <th>Categoria</th>
             <th>Producto</th>
             <th>Cantidad</th>
+            <th>Precio</th>
           </tr>
         </thead>
         {carrito &&
           carrito.map((d) => (
-            <thead>
-              <tr>
-                <th>
-                  {" "}
-                  <img
-                    src={d.item && d.item.imagen}
-                    alt=""
-                    width="150"
-                    height="120"
-                  />
-                </th>
-                <th>
-                  <strong>{d.item && d.item.categoria}</strong>
-                </th>
-                <th>{d.item && d.item.nombre}</th>
-                <th>{d.cantidad}</th>
-                <th>
-                  <button
-                    className="btn btn-dark"
-                    onClick={() => eliminarProducto(d.item && d.item.id)}
-                  >
-                    Eliminar
-                  </button>
-                </th>
-              </tr>
-            </thead>
+            <tr>
+              <th>
+                {" "}
+                <img
+                  src={d.item && d.item.imagen}
+                  alt=""
+                  width="150"
+                  height="120"
+                />
+              </th>
+              <th>
+                <strong>{d.item && d.item.categoria}</strong>
+              </th>
+              <th>{d.item && d.item.nombre}</th>
+              <th>{d.cantidad}</th>
+              <th>{d.item.precio}</th>
+              <th>
+                <button
+                  className="btn btn-dark"
+                  onClick={() => eliminarProducto(d.item && d.item.id)}
+                >
+                  Eliminar
+                </button>
+              </th>
+            </tr>
           ))}
       </table>
       <br />
-      <button className="btn btn-success" onClick={() => vaciarCarrito()}>
+      <button className="btn btn-success " onClick={() => vaciarCarrito()}>
         Vaciar Carrito
       </button>
     </div>
