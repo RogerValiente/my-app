@@ -1,4 +1,8 @@
-.cardProducto,
+#cardProducto {
+  border-radius: 1rem;
+  box-shadow: 10px 15px 5px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
 img {
   border-radius: 1rem;
   box-shadow: 10px 15px 5px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);

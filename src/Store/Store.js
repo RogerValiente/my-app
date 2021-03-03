@@ -27,13 +27,22 @@ function reducer(state, action) {
         carrito: [],
       };
 
+    case "CARGAR_PRODUCTOS":
+      localStorage.setItem("productos", JSON.stringify(payload));
+      return {
+        ...state,
+        productos: payload,
+      };
+
     default:
       return Error("reducer error");
   }
 }
 let data = JSON.parse(window.localStorage.getItem("carrito"));
+let dataProductos = JSON.parse(window.localStorage.getItem("productos"));
 const initialState = {
   carrito: data ? data : [],
+  productos: dataProductos ? dataProductos : [],
 };
 
 export default function Store(props) {

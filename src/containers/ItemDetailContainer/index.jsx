@@ -1,16 +1,16 @@
-import React from "react";
-import listaProductos from "../../data/dataProductos";
+import React, { useContext } from "react";
 import ItemDetail from "../../components/ItemDetail/index";
 import { useParams } from "react-router-dom";
+import { CTX } from "../../Store/Store";
 
 const ItemDetailContainer = () => {
-  const { id, categoria } = useParams();
-
-  console.log(id, categoria);
+  const { id } = useParams();
+  const [state, dispatch] = useContext(CTX);
+  const { productos } = state;
 
   return (
     <>
-      {listaProductos
+      {productos
         .filter((p) => p.id === id)
         .map((p) => (
           <ItemDetail key={p.id} product={p} />

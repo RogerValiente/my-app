@@ -4,10 +4,11 @@ import NavbarComponent from "./components/NavBar/index";
 import ItemListContainer from "./containers/ItemListContainer/index";
 import ItemDetailContainer from "./containers/ItemDetailContainer/index";
 import Cart from "./components/Cart/Index";
+import Store from "./Store/Store";
 
 function App() {
   return (
-    <>
+    <Store>
       <Router>
         <NavbarComponent />
         <Switch>
@@ -31,7 +32,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </>
+    </Store>
   );
 }
 

@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./styles.css";
 
-const ItemCount = ({ stock, initial, onAdd, label = "Agregar al carrito" }) => {
+const ItemCount = ({
+  stock,
+  initial,
+  onAdd,
+  id,
+  label = "Agregar al carrito",
+}) => {
   const [count, setCount] = useState(initial);
   const [mostrarBotonComprar, setMostrarBotonComprar] = useState(false);
   const restarProd = (num) => {
@@ -21,8 +27,8 @@ const ItemCount = ({ stock, initial, onAdd, label = "Agregar al carrito" }) => {
     setCount(num);
   };
 
-  const onBuy = () => {
-    onAdd(count);
+  const onBuy = (id) => {
+    onAdd(count, id);
     setMostrarBotonComprar(true);
   };
 
@@ -43,7 +49,7 @@ const ItemCount = ({ stock, initial, onAdd, label = "Agregar al carrito" }) => {
           >
             +
           </button>
-          <button className="ml-5 btn btn-dark" onClick={() => onBuy()}>
+          <button className="ml-5 btn btn-dark" onClick={() => onBuy(id)}>
             {label}
           </button>
         </>

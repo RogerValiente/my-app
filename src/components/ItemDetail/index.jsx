@@ -6,12 +6,12 @@ import "./styles.css";
 
 const ItemDetail = ({ product }) => {
   const [state, dispatch] = useContext(CTX);
-  const { carrito } = state;
+  const { carrito, productos } = state;
 
-  const onAdd = (prd, id) => {
-    let productoActual = carrito.filter((c) => c.item.id === id);
+  const onAdd = (cantidad, id) => {
+    let productoActual = carrito.filter((c) => c.item && c.item.id === id);
     if (productoActual.length > 0) {
-      productoActual[0].cantidad = productoActual[0].cantidad + 1;
+      productoActual[0].cantidad = cantidad;
 
       let idx = carrito.findIndex((a) => a.id === id);
       carrito.splice(idx, 1, ...productoActual);
@@ -20,9 +20,10 @@ const ItemDetail = ({ product }) => {
         payload: carrito,
       });
     } else {
+      let productoActual = productos.filter((c) => c.item.id === id);
       dispatch({
         type: "CARGAR_CARRITO",
-        payload: [...carrito, { item: prd, cantidad: 1 }],
+        payload: [...carrito, { item: productoActual[0], cantidad: cantidad }],
       });
     }
   };
@@ -85,7 +86,8 @@ const ItemDetail = ({ product }) => {
                 label="comprar"
                 stock={5}
                 initial={1}
-                onAdd={() => onAdd(product, id)}
+                onAdd={onAdd}
+                id={id}
               />
             </div>
           </div>

@@ -1,12 +1,10 @@
-import React from "react";
 import { Link } from "react-router-dom";
-
 import "./styles.css";
 
 const Item = ({ producto }) => {
   return (
-    <div className="card cardProducto pb-5" style={{ width: "18rem" }}>
-      <div className="card-body">
+    <div id="cardProducto" className=" card pb-5" style={{ width: "18rem" }}>
+      <div className="card-body ">
         <img src={producto.imagen} width="240" height="200" alt="Pasteleria" />
         <h3 className="card-title text-center">{producto.nombre}</h3>
         <p className="card-text">{producto.descripcion}</p>
