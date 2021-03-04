@@ -9,18 +9,21 @@ const ItemDetail = ({ product }) => {
   const { carrito, productos } = state;
 
   const onAdd = (cantidad, id) => {
-    let productoActual = carrito.filter((c) => c.item && c.item.id === id);
-    if (productoActual.length > 0) {
-      productoActual[0].cantidad = cantidad;
+    let productoActual = carrito.filter((c) => c.item.id === id);
 
-      let idx = carrito.findIndex((a) => a.id === id);
+    if (productoActual.length > 0) {
+      productoActual[0].cantidad = cantidad + productoActual[0].cantidad;
+
+      let idx = carrito.findIndex((a) => a.item.id === id);
+
       carrito.splice(idx, 1, ...productoActual);
       dispatch({
         type: "CARGAR_CARRITO",
         payload: carrito,
       });
     } else {
-      let productoActual = productos.filter((c) => c.item.id === id);
+      let productoActual = productos.filter((c) => c.id === id);
+
       dispatch({
         type: "CARGAR_CARRITO",
         payload: [...carrito, { item: productoActual[0], cantidad: cantidad }],

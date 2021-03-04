@@ -51,7 +51,7 @@ const Cart = () => {
                     <strong>{d.item && d.item.categoria}</strong>
                   </th>
                   <th>{d.item && d.item.nombre}</th>
-                  <th>{d.cantidad}</th>
+                  <th>{d.cantidad} </th>
                   <th>{d.item.precio}</th>
                   <th>{d.item.precio * d.cantidad}</th>
                   <th>

@@ -37,7 +37,7 @@ function CartWidget() {
         {({ placement, arrowProps, show: _show, popper, ...props }) => (
           <div {...props}>
             {""}
-            {carrito && carrito.length > 0 && (
+            {carrito && carrito.length > 0 ? (
               <>
                 <table className="table bg-secondary">
                   <thead>
@@ -99,6 +99,13 @@ function CartWidget() {
                 </table>
                 <br />
               </>
+            ) : (
+              <div className="bg-danger">
+                <span>No hay productos</span>
+                <Link to="/catalog" className="btn btn-dark">
+                  Ir a Comprar
+                </Link>
+              </div>
             )}
           </div>
         )}

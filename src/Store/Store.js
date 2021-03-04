@@ -34,6 +34,13 @@ function reducer(state, action) {
         productos: payload,
       };
 
+    case "MODIFICAR_CANTIDAD":
+      localStorage.setItem("carrito", JSON.stringify(payload));
+      return {
+        ...state,
+        carrito: payload,
+      };
+
     default:
       return Error("reducer error");
   }
