@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import { CTX } from "../../Store/Store";
 import { Link } from "react-router-dom";
+import { getFirestore } from "../../data/productos";
 
 const Cart = () => {
   const [state, dispatch] = useContext(CTX);
   const { carrito } = state;
+
   const vaciarCarrito = () => {
     dispatch({
       type: "ELIMINAR_TODO",
@@ -12,34 +14,38 @@ const Cart = () => {
   };
 
   const eliminarProducto = (id) => {
+    console.log(carrito);
     const prop = carrito.filter((c) => c.item && c.item.id !== id);
+    console.log(prop);
     dispatch({
       type: "ELIMINAR_PRODUCTO",
       payload: prop,
     });
   };
 
-  const modificarCantidad = (id, aumentar) => {
-    let idx = carrito.findIndex((a) => a.item.id === id);
-    let productoActual = carrito.filter((c) => (c.item.id = id));
-    console.log(productoActual);
-    if (!aumentar) {
-      if (productoActual[0].cantidad <= 1) return;
-
-      productoActual[0].cantidad = productoActual[0].cantidad - 1;
-      carrito.splice(idx, 1, ...productoActual);
-      dispatch({
-        type: "MODIFICAR_CANTIDAD",
-        payload: carrito,
-      });
-    } else {
-      productoActual[0].cantidad = productoActual[0].cantidad + 1;
-      carrito.splice(idx, 1, ...productoActual);
-      dispatch({
-        type: "MODIFICAR_CANTIDAD",
-        payload: carrito,
-      });
-    }
+  const finalizarCompra = () => {
+    let name = prompt("Ingresa tu Nombre y Apellido ?");
+    let email = prompt("Ingresa tu email ?");
+    let telefono = prompt("Ingresa tu telefono ?");
+    let newOrden = {
+      buyer: {
+        name,
+        email,
+        telefono,
+      },
+      items: [...carrito],
+      total: carrito.reduce((acumulador, actual) => {
+        return acumulador + actual.item.precio * actual.cantidad;
+      }, 0),
+      date: new Date(),
+    };
+    console.log(newOrden);
+    const fsDB = getFirestore();
+    const ordenesCollection = fsDB.collection("ordenes");
+    ordenesCollection.add(newOrden).then((value) => {
+      console.log(value.id);
+      alert(`compra exitosa, el id de su compra es  ${value.id}`);
+    });
   };
 
   return (
@@ -56,6 +62,7 @@ const Cart = () => {
                 <th>Cantidad</th>
                 <th>Precio Unidad</th>
                 <th>Precio</th>
+                <th></th>
               </tr>
             </thead>
             {carrito &&
@@ -74,21 +81,7 @@ const Cart = () => {
                     <strong>{d.item && d.item.categoria}</strong>
                   </th>
                   <th>{d.item && d.item.nombre}</th>
-                  <th>
-                    <button
-                      className="btn btn-light mr-3"
-                      onClick={() => modificarCantidad(d.item.id, false)}
-                    >
-                      -
-                    </button>
-                    {d.cantidad}{" "}
-                    <button
-                      className="btn btn-primary ml-3"
-                      onClick={() => modificarCantidad(d.item.id, true)}
-                    >
-                      +
-                    </button>
-                  </th>
+                  <th>{d.cantidad} </th>
                   <th>{d.item.precio}</th>
                   <th>{d.item.precio * d.cantidad}</th>
                   <th>
@@ -115,13 +108,24 @@ const Cart = () => {
           <button className="btn btn-success " onClick={() => vaciarCarrito()}>
             Vaciar Carrito
           </button>
+          <button
+            className="btn btn-success ml-3"
+            onClick={() => {
+              finalizarCompra();
+            }}
+          >
+            Finalizar Compra
+          </button>
+          <Link to="/catalog" className=" btn btn-primary position-fixed ml-3">
+            Seguir Comprando
+          </Link>
           <br />
         </>
       ) : (
         <>
           <div className="container mb-5 pt-5 btnVolver">
             <Link to="/catalog" className=" btn btn-dark position-fixed">
-              Ver Productos
+              Ver Catalogo
             </Link>
           </div>
           <h1 className="text-center display-3">No hay productos</h1>

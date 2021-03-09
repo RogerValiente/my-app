@@ -17,6 +17,30 @@ function CartWidget() {
     });
   };
 
+  // const modificarCantidad = (id, aumentar) => {
+  //   let idx = carrito.findIndex((a) => a.item.id === id);
+  //   let productoActual = carrito.filter((c) => (c.item.id = id));
+  //   console.log(productoActual);
+  //   if (!aumentar) {
+  //     if (productoActual[0].cantidad <= 1) return;
+
+  //     productoActual[0].cantidad = productoActual[0].cantidad - 1;
+  //     carrito.splice(idx, 1, ...productoActual);
+  //     dispatch({
+  //       type: "MODIFICAR_CANTIDAD",
+  //       payload: carrito,
+  //     });
+  //   } else {
+
+  //     productoActual[0].cantidad = productoActual[0].cantidad + 1;
+  //     carrito.splice(idx, 1, ...productoActual);
+  //     dispatch({
+  //       type: "MODIFICAR_CANTIDAD",
+  //       payload: carrito,
+  //     });
+  //   }
+  // };
+
   return (
     <>
       <img
@@ -65,7 +89,21 @@ function CartWidget() {
                           <strong>{d.item && d.item.categoria}</strong>
                         </th>
                         <th>{d.item && d.item.nombre}</th>
-                        <th>{d.cantidad}</th>
+                        <th>
+                          {/* <button
+                            className="btn btn-light mr-3"
+                            onClick={() => modificarCantidad(d.item.id, false)}
+                          >
+                            -
+                          </button> */}
+                          {d.cantidad}
+                          {/* <button
+                            className="btn btn-primary ml-3"
+                            onClick={() => modificarCantidad(d.item.id, true)}
+                          >
+                            +
+                          </button> */}
+                        </th>
                         <th>{d.item.precio * d.cantidad}</th>
                         <th>
                           <button
@@ -83,7 +121,7 @@ function CartWidget() {
                     <tr>
                       <td>
                         <Link to="/carrito" className="btn btn-dark">
-                          Ir a Comprar
+                          Ir a comprar
                         </Link>
                       </td>
                       <td colSpan="6" className="text-right text-white">
@@ -101,9 +139,11 @@ function CartWidget() {
               </>
             ) : (
               <div className="bg-danger">
-                <span>No hay productos</span>
-                <Link to="/catalog" className="btn btn-dark">
-                  Ir a Comprar
+                <span className="btn btn-red font-weight-bold col-7">
+                  No hay productos
+                </span>
+                <Link to="/catalog" className="btn btn-dark ">
+                  Ir al Catalogo
                 </Link>
               </div>
             )}

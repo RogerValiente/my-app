@@ -1,10 +1,9 @@
 import React, { useEffect, useContext } from "react";
 import { getFirestore } from "../../data/productos";
 import { CTX } from "../../Store/Store";
-
 import { useParams } from "react-router-dom";
 // import listaProductos from "../../data/dataProductos";
-import ItemList from "../../components/itemList/index";
+import Item from "../../components/Item/Item";
 
 const ItemListContainer = () => {
   const [state, dispatch] = useContext(CTX);
@@ -22,7 +21,7 @@ const ItemListContainer = () => {
       let aux = value.docs.map((element) => {
         return element.data();
       });
-      console.log(aux);
+
       if (categoria) {
         aux = aux.filter((p) => p.categoria === categoria);
       }
@@ -38,7 +37,9 @@ const ItemListContainer = () => {
     <>
       <h1>Nuestros Productos</h1>
       <div className="container card-columns">
-        <ItemList productos={productos} />
+        {productos.map((producto) => (
+          <Item key={producto.id} producto={producto} />
+        ))}
       </div>
     </>
   );
