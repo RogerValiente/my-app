@@ -41,6 +41,14 @@ function reducer(state, action) {
         carrito: payload,
       };
 
+    case "FINALIZAR_COMPRA":
+      localStorage.removeItem("carrito");
+
+      return {
+        ...state,
+        carrito: [],
+      };
+
     default:
       return Error("reducer error");
   }

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { CTX } from "../../Store/Store";
 import { Link } from "react-router-dom";
 import { getFirestore } from "../../data/productos";
+import Formulario from "../Formulario";
 
 const Cart = () => {
   const [state, dispatch] = useContext(CTX);
@@ -14,37 +15,10 @@ const Cart = () => {
   };
 
   const eliminarProducto = (id) => {
-    console.log(carrito);
     const prop = carrito.filter((c) => c.item && c.item.id !== id);
-    console.log(prop);
     dispatch({
       type: "ELIMINAR_PRODUCTO",
       payload: prop,
-    });
-  };
-
-  const finalizarCompra = () => {
-    let name = prompt("Ingresa tu Nombre y Apellido ?");
-    let email = prompt("Ingresa tu email ?");
-    let telefono = prompt("Ingresa tu telefono ?");
-    let newOrden = {
-      buyer: {
-        name,
-        email,
-        telefono,
-      },
-      items: [...carrito],
-      total: carrito.reduce((acumulador, actual) => {
-        return acumulador + actual.item.precio * actual.cantidad;
-      }, 0),
-      date: new Date(),
-    };
-    console.log(newOrden);
-    const fsDB = getFirestore();
-    const ordenesCollection = fsDB.collection("ordenes");
-    ordenesCollection.add(newOrden).then((value) => {
-      console.log(value.id);
-      alert(`compra exitosa, el id de su compra es  ${value.id}`);
     });
   };
 
@@ -108,18 +82,13 @@ const Cart = () => {
           <button className="btn btn-success " onClick={() => vaciarCarrito()}>
             Vaciar Carrito
           </button>
-          <button
-            className="btn btn-success ml-3"
-            onClick={() => {
-              finalizarCompra();
-            }}
-          >
-            Finalizar Compra
-          </button>
+
           <Link to="/catalog" className=" btn btn-primary position-fixed ml-3">
             Seguir Comprando
           </Link>
-          <br />
+          <div className="row">
+            <Formulario />
+          </div>
         </>
       ) : (
         <>

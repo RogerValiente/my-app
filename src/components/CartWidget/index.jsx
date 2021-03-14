@@ -17,30 +17,6 @@ function CartWidget() {
     });
   };
 
-  // const modificarCantidad = (id, aumentar) => {
-  //   let idx = carrito.findIndex((a) => a.item.id === id);
-  //   let productoActual = carrito.filter((c) => (c.item.id = id));
-  //   console.log(productoActual);
-  //   if (!aumentar) {
-  //     if (productoActual[0].cantidad <= 1) return;
-
-  //     productoActual[0].cantidad = productoActual[0].cantidad - 1;
-  //     carrito.splice(idx, 1, ...productoActual);
-  //     dispatch({
-  //       type: "MODIFICAR_CANTIDAD",
-  //       payload: carrito,
-  //     });
-  //   } else {
-
-  //     productoActual[0].cantidad = productoActual[0].cantidad + 1;
-  //     carrito.splice(idx, 1, ...productoActual);
-  //     dispatch({
-  //       type: "MODIFICAR_CANTIDAD",
-  //       payload: carrito,
-  //     });
-  //   }
-  // };
-
   return (
     <>
       <img

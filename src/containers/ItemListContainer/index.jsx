@@ -2,7 +2,6 @@ import React, { useEffect, useContext } from "react";
 import { getFirestore } from "../../data/productos";
 import { CTX } from "../../Store/Store";
 import { useParams } from "react-router-dom";
-// import listaProductos from "../../data/dataProductos";
 import Item from "../../components/Item/Item";
 
 const ItemListContainer = () => {
@@ -13,6 +12,7 @@ const ItemListContainer = () => {
   useEffect(() => {
     //Crear la conexion de la base de datos
     const baseDatos = getFirestore();
+
     // Guardamos la refecencia de la coleccion que queremos tomar
     const itemCollection = baseDatos.collection("Items");
 
