@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { CTX } from "../../Store/Store";
 import { Link } from "react-router-dom";
-import { getFirestore } from "../../data/productos";
 import Formulario from "../Formulario";
+import "../CartWidget/styles.css";
 
 const Cart = () => {
   const [state, dispatch] = useContext(CTX);
@@ -23,7 +23,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container" id="cart">
       {carrito && carrito.length > 0 ? (
         <>
           <h2> Productos seleccionados son:</h2>
@@ -41,7 +41,7 @@ const Cart = () => {
             </thead>
             {carrito &&
               carrito.map((d) => (
-                <tr className="text-center">
+                <tbody className="text-center">
                   <th>
                     {" "}
                     <img
@@ -66,7 +66,7 @@ const Cart = () => {
                       Eliminar
                     </button>
                   </th>
-                </tr>
+                </tbody>
               ))}
             <tfoot>
               <tr className="text-white bg-dark">
@@ -79,15 +79,23 @@ const Cart = () => {
               </tr>
             </tfoot>
           </table>
-          <button className="btn btn-success " onClick={() => vaciarCarrito()}>
-            Vaciar Carrito
-          </button>
-
-          <Link to="/catalog" className=" btn btn-primary position-fixed ml-3">
-            Seguir Comprando
-          </Link>
           <div className="row">
-            <Formulario />
+            <button
+              className="btn btn-success ml-3 col-ms-3 "
+              onClick={() => vaciarCarrito()}
+            >
+              Vaciar Carrito
+            </button>
+
+            <Link
+              to="/catalog"
+              className="col-ms-3 ml-3 pt-2 btn bg-primary text-white"
+            >
+              Seguir Comprando
+            </Link>
+            <div className="col-ms-3">
+              <Formulario />
+            </div>
           </div>
         </>
       ) : (

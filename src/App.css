@@ -1,0 +1,44 @@
+.App {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+.digiCard {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.nombre {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px;
+}
+
+.nivel {
+  font-size: 20px;
+  text-align: center;
+  padding: 10px;
+}
+
+.img {
+  display: block;
+  width: 30%;
+  margin: 0 auto;
+}
+
+.opciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+}
+
+.opcion {
+  font-size: 30px;
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: 40px;
+  cursor: pointer;
+}

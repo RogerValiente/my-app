@@ -31,11 +31,11 @@ const ItemListContainer = () => {
         payload: aux,
       });
     });
-  }, [categoria]);
+  }, [categoria, dispatch]);
 
   return (
     <>
-      <h1>Nuestros Productos</h1>
+      <h1 className="pt-5">Nuestros Productos</h1>
       <div className="container card-columns">
         {productos.map((producto) => (
           <Item key={producto.id} producto={producto} />

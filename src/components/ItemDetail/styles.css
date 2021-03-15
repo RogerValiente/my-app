@@ -1,5 +1,12 @@
 .btnVolver {
-  z-index: 1;
+  z-index: 20;
   position: relative;
-  display: contents;
+  display: flex;
+  justify-content: left;
+  margin-top: 300px;
+  left: 0px;
+}
+
+.titulo {
+  margin-top: -200px;
 }

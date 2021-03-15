@@ -5,7 +5,7 @@ import { CTX } from "../../Store/Store";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
-  const [state, dispatch] = useContext(CTX);
+  const [state] = useContext(CTX);
   const { productos } = state;
 
   return (

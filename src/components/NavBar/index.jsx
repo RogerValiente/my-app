@@ -14,8 +14,13 @@ import {
 
 function NavbarComponent() {
   return (
-    <div>
-      <Navbar className="menu" variant="dark" expand="lg">
+    <>
+      <Navbar
+        className="menu bg-dark"
+        variant="dark"
+        expand="lg"
+        style={{ position: "fixed", top: "0" }}
+      >
         <Navbar.Brand>
           <Link to="/" className="font-weight-bold">
             <img src={logo} alt="..." width="50" height="50" />
@@ -62,7 +67,7 @@ function NavbarComponent() {
         </Navbar.Collapse>
         <CartWidget />
       </Navbar>
-    </div>
+    </>
   );
 }
 

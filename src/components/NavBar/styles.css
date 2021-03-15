@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(194, 142, 168) !important;
+  background-color: rgb(114, 112, 119) !important;
 }
 
 body h1 {
@@ -11,7 +11,19 @@ body h1 {
   margin-bottom: 3rem;
   margin-top: 2rem;
 }
-
 .menu {
-  background-color: black;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  color: white;
+  z-index: 10;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  color: white;
 }

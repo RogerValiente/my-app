@@ -1,8 +1,9 @@
 import React, { useContext, useRef, useState } from "react";
-import cart from "../../imagen/cart.png";
+import cart from "./cart.png";
 import { Link } from "react-router-dom";
 import { CTX } from "../../Store/Store";
 import Overlay from "react-bootstrap/Overlay";
+import "./styles.css";
 
 function CartWidget() {
   const [state, dispatch] = useContext(CTX);
@@ -35,11 +36,11 @@ function CartWidget() {
 
       <Overlay target={target.current} show={show} placement="left">
         {({ placement, arrowProps, show: _show, popper, ...props }) => (
-          <div {...props}>
+          <div id="carrito" {...props}>
             {""}
             {carrito && carrito.length > 0 ? (
               <>
-                <table className="table bg-secondary">
+                <table className="table bg-white">
                   <thead>
                     <tr className="text-center">
                       <th>Imagen</th>
@@ -49,6 +50,7 @@ function CartWidget() {
                       <th>Precio</th>
                     </tr>
                   </thead>
+
                   {carrito &&
                     carrito.map((d) => (
                       <tr className="text-center">
@@ -65,21 +67,7 @@ function CartWidget() {
                           <strong>{d.item && d.item.categoria}</strong>
                         </th>
                         <th>{d.item && d.item.nombre}</th>
-                        <th>
-                          {/* <button
-                            className="btn btn-light mr-3"
-                            onClick={() => modificarCantidad(d.item.id, false)}
-                          >
-                            -
-                          </button> */}
-                          {d.cantidad}
-                          {/* <button
-                            className="btn btn-primary ml-3"
-                            onClick={() => modificarCantidad(d.item.id, true)}
-                          >
-                            +
-                          </button> */}
-                        </th>
+                        <th>{d.cantidad}</th>
                         <th>{d.item.precio * d.cantidad}</th>
                         <th>
                           <button
@@ -97,10 +85,13 @@ function CartWidget() {
                     <tr>
                       <td>
                         <Link to="/carrito" className="btn btn-dark">
-                          Ir a comprar
+                          Ir al carrito
                         </Link>
                       </td>
-                      <td colSpan="6" className="text-right text-white">
+                      <td
+                        colSpan="6"
+                        className="text-right text-black font-weight-bold"
+                      >
                         Precio Total:{" "}
                         {carrito.reduce((acumulador, actual) => {
                           return (
@@ -114,7 +105,7 @@ function CartWidget() {
                 <br />
               </>
             ) : (
-              <div className="bg-danger">
+              <div className="bg-warning">
                 <span className="btn btn-red font-weight-bold col-7">
                   No hay productos
                 </span>

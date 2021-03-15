@@ -44,13 +44,12 @@ const ItemDetail = ({ product }) => {
   } = product;
   return (
     <>
-      <div className="container mb-5 pt-5 btnVolver">
-        <Link to="/catalog" className=" btn btn-dark position-fixed">
+      <div className="btnVolver">
+        <Link to="/catalog" className=" btn btn-danger position-fixed">
           volver
         </Link>
       </div>
-
-      <h1>{nombre}</h1>
+      <h1 className="titulo">{nombre}</h1>
 
       <div className="container mb-5" key={id}>
         <div className="card  bg-danger">

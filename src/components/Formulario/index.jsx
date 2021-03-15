@@ -9,7 +9,7 @@ const Formulario = () => {
   const { carrito } = state;
   const [verificar, setVerificar] = useState(true);
   const [idCompra, setIdCompra] = useState();
-  console.log(carrito);
+
   // Modal
   const [show, setShow] = useState(false);
 
@@ -37,17 +37,8 @@ const Formulario = () => {
   };
 
   const enviarDatos = (event) => {
-    setVerificar(false);
     event.preventDefault();
-
-    if (datos.nombre === "" || datos.apellido === "") {
-      alert("Por favor llenar todo los campos");
-      return;
-    }
-    if (datos.email === "" || datos.phone === "") {
-      alert("Por favor llenar todo los campos");
-      return;
-    }
+    setVerificar(false);
 
     let newOrden = {
       buyer: {
@@ -70,10 +61,6 @@ const Formulario = () => {
     ordenesCollection.add(newOrden).then(({ id }) => {
       setIdCompra(id);
     });
-    dispatch({
-      item: [],
-      cantidad: 0,
-    });
   };
 
   const vaciarCarrito = () => {
@@ -85,7 +72,7 @@ const Formulario = () => {
   return (
     <>
       <div className="container">
-        <Button variant="primary" onClick={handleShow}>
+        <Button variant="dark" onClick={handleShow}>
           Procesar Compra
         </Button>
         <Modal show={show} onHide={handleClose}>
@@ -161,7 +148,7 @@ const Formulario = () => {
                   </div>
                   <div className="form-row pt-3">
                     <div className="col-md-6 col-sm-12 form-group px-2">
-                      <label htmlFor="">Nombre del titular</label>
+                      <label>Nombre del titular</label>
                       <input
                         type="text"
                         value={FormData.nombreTarjeta}
@@ -172,7 +159,7 @@ const Formulario = () => {
                       />
                     </div>
                     <div className="col-md-6 col-sm-12 form-group px-2">
-                      <label htmlFor="">Número de tarjeta</label>
+                      <label>Número de tarjeta</label>
                       <input
                         type="number"
                         value={FormData.tarjeta}
@@ -184,7 +171,7 @@ const Formulario = () => {
                   </div>
                   <div className="form-row pb-3">
                     <div className="col-md-6 col-sm-12 form-group px-2">
-                      <label htmlFor="">Fecha de vencimiento</label>
+                      <label>Fecha de vencimiento</label>
                       <input
                         type="text"
                         value={FormData.vencimiento}
@@ -195,7 +182,7 @@ const Formulario = () => {
                       />
                     </div>
                     <div className="col-md-6 col-sm-12 form-group px-2">
-                      <label htmlFor="">Código de seguridad</label>
+                      <label>Código de seguridad</label>
                       <input
                         type="number"
                         value={FormData.cvv}
@@ -228,17 +215,25 @@ const Formulario = () => {
                   ) : (
                     <div>
                       <CompraProcesada idCompra={idCompra} />
-                      <Modal.Footer>
+                      <div className="pt-3 text-center">
                         <Button variant="secondary" onClick={vaciarCarrito}>
                           Finalizar
                         </Button>
-                      </Modal.Footer>
+                      </div>
                     </div>
                   )}
                 </form>
               </div>
             </div>
           </Modal.Body>
+          {/* // <div>
+          //   <CompraProcesada idCompra={idCompra} />
+          //   <Modal.Footer>
+          //     <Button variant="secondary" onClick={vaciarCarrito}>
+          //       Finalizar
+          //     </Button>
+          //   </Modal.Footer>
+          // </div> */}
         </Modal>
       </div>
     </>
